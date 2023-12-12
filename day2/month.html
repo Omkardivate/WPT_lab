@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function f1(){
+                let m= document.getElementById("month").value 
+                let d=document.getElementById("day").value 
+
+                switch (m) {
+                    case "1": m="January"; break;
+                    case "2": m="February"; break;
+                    case "3": m="March"; break;
+                    case "4": m="April"; break;
+                    case "5": m="May"; break;
+                    case "6": m="June"; break;
+                    case "7": m="July"; break;
+                    case "8": m="August"; break;
+                    case "9": m="September"; break;
+                    case "10": m="October"; break;
+                    case "11": m="November"; break;
+                    case "12": m="December"; break
+                }
+
+                switch (d) {
+                    case "0": d="Sunday"; break;
+                    case "1": d="Monday"; break;
+                    case "2": d="Tuesday"; break;
+                    case "3": d="Wednesday";
+                        break;
+                    case "4": d="Thursday";
+                        break;
+                    case "5": d="Friday";
+                        break;
+                    case "6": d="Saturday";
+                        break;
+                }
+                let str=`<b><i> ${m}, ${d} </i></b>`
+                document.getElementById("uc").innerHTML= str
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <label>Choose month: </label>
+            <select id="month" onchange="f1()">
+                <option></option> <option>1</option> <option>2</option> <option>3</option> <option>4</option> 
+                <option>5</option> <option>6</option> <option>7</option> <option>8</option> <option>9</option>
+                <option>10</option> <option>11</option> <option>12</option>
+            </select> <br><br>
+
+            <label>Choose weekday: </label>
+            <select id="day" onchange="f1()">
+                <option></option> <option>0</option> <option>1</option> <option>2</option> <option>3</option> 
+                <option>4</option> <option>5</option> <option>6</option>
+            </select>
+
+            <p id="uc" style="font-size: 55px;"></p>
+        </div>
+    </body>
+</html>

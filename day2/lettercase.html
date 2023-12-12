@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>letter case</title>
+        <script>
+            function f1() {
+                let s= document.getElementById("s").value
+                let uc= document.getElementById("uc").checked
+                let lc= document.getElementById("lc").checked
+                let tc= document.getElementById("tc").checked
+             
+                if(uc){
+                    s= s.toUpperCase()
+                    //document.getElementById("p").innerHTML= "<b> "+s+" </b>"
+                }
+                if(lc){
+                    s= s.toLowerCase()
+                }
+                if(tc){
+                    let first= s.charAt(0).toUpperCase()
+                    let last= s.substring(1).toLowerCase()
+                    s= first+last
+                }
+                document.getElementById("p").innerHTML= `<b> ${s} </b>`
+            }
+        </script>
+
+    </head>
+    <body>
+        <label>Enter string: </label><input type="text" id="s" onblur="f1()"> <br><br>
+        <input type="radio" name="case" id="uc" onclick="f1()"> <label for="uc">UpperCase</label>
+        <input type="radio" name="case" id="lc" onclick="f1()"> <label for="lc">LowerCase</label> 
+        <input type="radio" name="case" id="tc" onclick="f1()"> <label for="tc">TitleCase</label> <br><br>
+
+        <p id="p" style="font-size: 30px;"> </p>
+    </body>
+</html>

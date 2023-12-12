@@ -1,0 +1,32 @@
+<!-- no. of saturday is remaining -->
+<html>
+    <head>
+        <title>Bank</title>
+        <script>
+            function f1(){
+                let x = document.getElementById("d").value;
+                console.log(x)
+                let day= new Date(x).getDay();
+               
+                switch (day) {
+                    case 0:day="Today is a holiday,bcoz of sunday"; break;
+                    case 1:day="Monday"; break;
+                    case 2:day="Tuesday"; break;
+                    case 3:day="Wednesday"; break;
+                    case 4:day="Thursday"; break;
+                    case 5:day="Friday"; break;
+                    case 6:day="Saturday"; 
+                    
+                    break;
+                }
+                document.getElementById("p").innerHTML = day;
+            }
+        </script>
+    </head>
+    <body>
+        <label for="d">Date: </label> <input type="date" id="d"> <br><br>
+        <button onclick="f1()">click</button>
+
+        <p id="p" style="font-size: 20px;"></p>
+    </body>
+</html>

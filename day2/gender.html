@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Naming</title>
+        <script>
+            function f1(){
+                let fn= document.getElementById("fname").value
+                let ln= document.getElementById("lname").value
+                let m= document.getElementById("m").checked
+                let f= document.getElementById("f").checked
+                let str
+
+                let first= fn.charAt(0).toUpperCase()
+                let last= fn.substring(1).toLowerCase()
+                fn= first+last
+
+                first= ln.charAt(0).toUpperCase()
+                last= ln.substring(1).toLowerCase()
+                ln= first+last
+                if(m){
+                    str= `<b>Mr. ${ln} ${fn}`
+                }
+                if(f){
+                    str= `<b>Madam. ${ln} ${fn}`
+                }
+                document.getElementById("p").innerHTML= str
+            }
+        </script>
+    </head>
+    <body>
+        <form action="">
+            <fieldset>
+                <legend>Register</legend>
+                <label>First Name:</label> <input type="text" id="fname"> <br><br>
+                <label>Last Name:</label> <input type="text" id="lname"> <br><br>
+
+                <label>Gender: </label> &ensp;
+                <input type="radio" name="g" id="m" onclick="f1()"> <label for="m">Male</label>
+                <input type="radio" name="g" id="f" onclick="f1()"> <label for="f">Female</label> <br><br>
+            </fieldset>
+        </form>
+        <p id="p" style="font-size: 20px;"></p>
+    </body>
+</html>
