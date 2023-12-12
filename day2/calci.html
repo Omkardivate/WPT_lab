@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function f1(){
+                let a= parseInt(document.getElementById("n1").value)
+                let b= parseInt(document.getElementById("n2").value)
+
+                let op= document.getElementById("op").value
+                let result,str
+
+                switch(op){
+                    case "+":
+                        result=a+b
+                        break;
+                    case "-":
+                        result=a-b
+                        break;
+                    case "*":
+                        result=a*b
+                        break;
+                    case "/":
+                        result=a/b
+                        break;
+                }
+                //let str="Result is <b><i>"+a+" "+op+" "+b+" ="+result+"</i></b>"
+                str=`Result is <b><i>${a} ${op} ${b} = ${result} </i></b>`
+                document.getElementById("r").innerHTML=str
+            }
+        </script>
+    </head>
+    <body>
+        <div> 
+            <label for="">Enter num1: </label>
+            <input type="text" id="n1"><br><br>
+            <label for="">Enter num2: </label>
+            <input type="text" id="n2" > <br><br>
+
+            <select id="op" onchange="f1()">
+                <option></option>
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+
+            <p id="r"></p>
+        </div>
+    </body>
+</html>

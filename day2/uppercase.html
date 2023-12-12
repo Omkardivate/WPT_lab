@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function f1(){
+                let s=document.getElementById("s1").value
+                let ucstr=s.toUpperCase()
+                document.getElementById("uc").innerHTML= "<b>"+ucstr+"</b>"
+            }
+            function f(){
+                let s=document.getElementById("s1").value
+                document.getElementById("uc").innerHTML= "<b>"+s+"</b>"
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <label for="">Enter string: </label>
+            <input type="text" id="s1" onblur="f()">
+            <button onclick="f1()">Click here</button>
+
+            <p id="uc"></p>
+        </div>
+    </body>
+</html>

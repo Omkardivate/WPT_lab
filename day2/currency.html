@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>currency converter</title>
+    <script>
+        function f1() {
+            let op1 = document.getElementById("op1").value;
+            let op2 = document.getElementById("op2").value;
+            let val = parseFloat(document.getElementById("i1").value); // Use parseFloat instead of parseInt
+            let str;
+            if (op1 === op2) {
+                str = `<b>${val} ${op1}</b>`;
+            } 
+            else {
+                // Perform the currency conversion here
+                let conversionRate = getConversionRate(op1, op2);
+                let result = val * conversionRate;
+                str = `<b>${val} ${op1}</b> is equal to <b>${result} ${op2}</b>`;
+            }
+            document.getElementById("output").innerHTML = str;
+        }
+
+        function getConversionRate(fromCurrency, toCurrency) {
+            // Replace these values with the actual conversion rates
+            const conversionRates = {
+                '₹': 0.014,
+                '$': 1.0,
+                '€': 0.85,
+                '£': 0.73,
+                '¥': 112.18
+            };
+            return conversionRates[fromCurrency] / conversionRates[toCurrency];
+        }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <label for="i1">Currency</label> <input type="number" id="i1"> <br><br>
+        <label>convert from:</label>
+        <select id="op1">
+            <option>&#8377;</option>
+            <option>&#36;</option>
+            <option>&#8364;</option>
+            <option>&#163;</option>
+            <option>&#165;</option>
+        </select><br><br>
+
+        <label>convert to:</label>
+        <select id="op2">
+            <option>&#8377;</option>
+            <option>&#36;</option>
+            <option>&#8364;</option>
+            <option>&#163;</option>
+            <option>&#165;</option>
+        </select><br><br>
+
+        <input type="button" onclick="f1()" value="convert" style="height:30px;width:100px;">
+
+        <p id="output"  style="font-size: 20px;"></p>
+    </form>
+</body>
+
+</html>
