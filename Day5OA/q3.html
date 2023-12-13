@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        let cnt=0
+        let intervalId;
+        $().ready(()=>{
+            $("#s").click(()=>{
+                
+                let callback=()=>{
+                   let tag= document.getElementById("p1");
+                    $(tag).html(++cnt)
+                }
+                id= setInterval(callback , 1000)
+                
+            })
+
+            $("#p").click(
+                clearInterval(id)
+            )
+
+            $("#r").click(
+            )
+        }
+        )
+    </script>
+</head>
+<body>
+    <prev>
+        <input type="button" value="start" id="s">  <input type="button" value="pause" id="p">  <input type="button" value="reset" id="r"> <br><br>
+
+        <p id="p1">here</p>
+    </prev>
+</body>
+</html>
