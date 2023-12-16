@@ -1,0 +1,6 @@
+
+1. inline css, internal css, external css
+
+2. internal css: 4 types of selectors
+
+3. closure, prototype, array, diff. class syntax

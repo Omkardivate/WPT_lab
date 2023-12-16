@@ -1,0 +1,6 @@
+
+1. Form tag , input tags , validation attributes
+
+2. Regular expression for pattern validation
+
+3. client side validation

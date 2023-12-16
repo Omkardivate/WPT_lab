@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Document</title>
+    <script>
+        // let s1="om"
+        // let s2="on"
+        // console.log(s1<s2)
+        let arr=[]
+
+        function compareNumbers(a, b) {
+            return a - b;
+        }
+        
+        function f1(){
+            let n=parseInt(document.getElementById("num").value)
+            arr.push(n)
+        }
+
+        function sort1(){
+            let flag=document.getElementById("2").checked
+            console.log(flag)
+            console.log(arr.sort(compareNumbers))
+            if(flag)
+            {
+                console.log( arr.sort(compareNumbers).reverse())
+            }
+            document.getElementById("p1").innerHTML=`<b> ${arr} </b>`
+        }
+    </script>
+</head>
+<body>
+    <div>
+        Enter no: <input type="number" onblur="f1()" id="num"> <br><br>
+
+        sort: <br>
+        <input type="radio" name="sort" id="1" onclick="sort1()"> Asc<br>
+        <input type="radio" name="sort" id="2" onclick="sort1()"> Desc
+
+        <p id="p1"></p>
+    </div>
+</body>
+</html>
