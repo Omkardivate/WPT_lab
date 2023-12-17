@@ -5,7 +5,7 @@ export default function ShowMonth(){
     let arr=[0,1,2,3,4,5,6,7,8,9,10,11,12]
 
     let month= arr.map((val)=>{
-        return <option > {val} </option>
+        return <option key={val}> {val} </option>
     })
 
     let[monthname,setmonth]= useState("nothing")

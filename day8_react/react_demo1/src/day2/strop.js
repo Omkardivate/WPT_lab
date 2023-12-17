@@ -3,7 +3,7 @@ export default class Stropt extends React.Component{
 
     constructor(){
         super()
-        this.state={str:"", rev:"",org:""}
+        this.state={str:"", rev:"",org:""}  //property and its initial value
     }
 
     revhandler=(event)=>{
@@ -40,17 +40,19 @@ export default class Stropt extends React.Component{
 
     }
 
-    handler=(event)=>{
-        console.log(event.target.value)
-        this.setState({str:event.target.value,org:event.target.value})
-    }
+    // handler=(event)=>{
+    //     console.log(event.target.value)
+    //     this.setState({str:event.target.value,org:event.target.value})
+    // }
 
     render(){
         return( 
             <>
             <hr/>
             <div>
-                Enter string: <input type="textfield" onBlur={this.handler}/>
+                Enter string: <input type="textfield" onBlur={this.handler=(event)=>{
+                                            console.log(event.target.value)
+                                            this.setState({str:event.target.value,org:event.target.value})} }/>
                 
                 <pre>
                 <input type="checkbox" onClick={this.revhandler}/> Reverse <br/><br/>
