@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+    <script src="./demo.js"></script>
+    <script>
+        function f1() {
+            var name= (document.getElementById("name").value ).toUpperCase() ;
+            document.getElementById("p1").innerHTML= `<i> ${name} </i>` ;
+        }
+    </script>
+    <script>
+        $().ready(()=>{
+                
+                $("#f2").click(()=>{
+                    $(".d1").slideToggle(1000)
+                })
+        })
+    </script>
+</head>
+    <body>
+        <div style="margin-left: 40%; margin-top: 3%;">
+            <a href="./media.html" target="_parent">
+                <img src="https://miro.medium.com/v2/resize:fit:679/0*ngAthWxOvKZHvsw9" alt="not found" height="200px" width="200px" style="border-radius: 50%;">
+            </a>
+            <h1 id="p1" style="float: right;"></h1>
+        </div>
+        
+        <div style="width: 55%; margin: auto;" class="d1">
+            <form action="" >
+                <fieldset style="padding: 25px;">
+                    <legend>Register</legend>
+                    Name: <input type="text" id="name"  minlength="3" maxlength="15"  > <br><br>
+                    Password: <input type="password" id="password" required> <br><br>
+                    Age: <input type="number" id="age" min=18 max=23> <br><br>
+                    Higher Education: 
+                    <select>
+                        <option value="" selected>   </option>
+                        <option value=""> SSC </option>
+                        <option value=""> HSC </option>
+                        <option value=""> BE </option>
+                    </select> <br><br>
+                    Gender: 
+                    <input type="radio" name="gender" id="male"> <label for="male"> Male </label> &nbsp;
+                    <input type="radio" name="gender" id="female"> <label for="female"> Female </label> <br><br>
+                    Known Languages: 
+                    <input type="checkbox" id="english"> <label for="english"> English </label> &nbsp;
+                    <input type="checkbox" id="japanese"> <label for="japanese"> Japanese </label> &nbsp;
+                    <input type="checkbox" id="german"> <label for="german"> German </label> <br> <br>
+                </fieldset>
+                <input type="submit" value="Submit" style="width: 10%; margin-left: 35%; margin-top: 20px;"> &nbsp; &nbsp;    
+            </form>
+        </div>
+        
+        <button id="f2" > Hide form </button>
+        <input type="button" value="Uppercase" onclick="f1()">
+        
+    </body>
+</html>

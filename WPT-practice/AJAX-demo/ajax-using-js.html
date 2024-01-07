@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ajax demo</title>
+    
+    <script>
+        function get() {
+            var id= document.getElementById("pid").value 
+            // console.log(id)
+            let http= new XMLHttpRequest();
+
+            http.open("GET",`https://reqres.in/api/users/${id}`)
+            http.send()
+
+            http.onload= ()=>{
+                let obj= JSON.parse(http.responseText)
+                console.log("by GET request")
+                console.log(obj)
+                document.getElementById("d1").innerHTML= `<img src="${obj.data.avatar}" alt="not found" height="200px" width="200px" style="border-radius: 50%;">`
+                document.getElementById("f").innerHTML= `<h1 id="p1" "> ${obj.data.first_name} ${obj.data.last_name} </h1>`
+            }
+        }
+
+        function post() {
+            let http= new XMLHttpRequest();
+
+            http.open("POST",`https://reqres.in/api/users?name=morpheus&job=leader`)
+            http.send()
+            
+            http.onload= ()=>{
+                let obj= JSON.parse(http.responseText)
+                console.log("by POST request")
+                console.log(obj)
+                document.getElementById("f").innerHTML= `<h1 id="p1" "> ${obj.id} : ${obj.createdAt} </h1>`
+            }
+        }
+
+        function put() {
+            var id= document.getElementById("pid").value 
+            // console.log(id)
+            let http= new XMLHttpRequest();
+
+            http.open("PUT",`https://reqres.in/api/users/${id}?name=morpheus&job=zion resident`)
+            http.send()
+            
+            http.onload= ()=>{
+                let obj= JSON.parse(http.responseText)
+                console.log("by PUT request")
+                console.log(obj)
+                document.getElementById("f").innerHTML= `<h1 id="p1" "> ${id} : ${obj.updatedAt} </h1>`
+            }
+        }
+
+        function del() {
+            var id= document.getElementById("pid").value 
+            // console.log(id)
+            let http= new XMLHttpRequest();
+
+            http.open("DELETE",`https://reqres.in/api/users/${id}`)
+            http.send()
+            
+            http.onload= ()=>{
+                let x= http.responseText
+                console.log("by DELETE request")
+                console.log(x)
+                document.getElementById("f").innerHTML= `<h1 id="p1" "> ${x} </h1>`
+            }
+        }
+    </script>
+</head>
+    <body>
+        <div style="margin-left: 40%; margin-top: 3%;" id="d1">
+                <img src="https://miro.medium.com/v2/resize:fit:679/0*ngAthWxOvKZHvsw9" alt="not found" height="200px" width="200px" style="border-radius: 50%;">
+        </div>
+        
+        <div style="width: 55%; margin: auto;" class="d1">
+            
+                <fieldset style="padding: 25px;" id="f">
+                    <legend>Register</legend>
+                    Id: <input type="text" id="pid"  min=1 min=10  required> <br><br>
+                    <input type="submit" value="GET" style="width: 20%; margin-left: 35%; margin-top: 20px;" onclick="get()"> <br><br>
+                    <input type="submit" value="POST" style="width: 20%; margin-left: 35%; margin-top: 20px;" onclick="post()"> <br><br>
+                    <input type="submit" value="PUT" style="width: 20%; margin-left: 35%; margin-top: 20px;" onclick="put()"> <br><br>
+                    <input type="submit" value="DELETE" style="width: 20%; margin-left: 35%; margin-top: 20px;" onclick="del()"> <br><br>
+                </fieldset>
+                  
+            
+        </div>
+        
+    </body>
+</html>
